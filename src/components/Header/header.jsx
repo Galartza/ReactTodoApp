@@ -10,7 +10,7 @@ export function Header() {
             <img src={imgLogo} className='logo' />
 
             <form className='form'>
-                <input placeholder="Agrega una nueva tarea" class="input" name="text" type="text" />
+                <input placeholder="Agrega una nueva tarea" class="input" name="text" type="text"  />
                 <button className='button'>
                     Crear
                     <AiOutlinePlusCircle />
