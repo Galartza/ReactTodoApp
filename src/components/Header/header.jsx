@@ -3,15 +3,15 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import './header.css'
 import { useState } from 'react';
 
-
-
 export function Header({ onAddTask }) {
     const [title, setTitle] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        onAddTask(title)
+        onAddTask(title);
+
+        setTitle('');
     }
 
     function onChacngeTitle(event) {

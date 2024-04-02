@@ -4,9 +4,8 @@ import { Tasks } from "./components/Tasks/tasks";
 
 const LOCAL_STORAGE_KEY = "todo:savedTasks";
 
-function setTaskAndSave(newTask, setTasks) {
-  setTasks(newTask);
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTask));
+function setTaskAndSave(newTasks) {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
 }
 
 function App() {
@@ -24,36 +23,37 @@ function App() {
   }, []);
 
   function addTask(taskTitle) {
-    setTaskAndSave(
-      [
-        ...tasks,
-        {
-          id: crypto.randomUUID(),
-          title: taskTitle,
-          isCompleted: false,
-        },
-      ],
-      setTasks
-    );
+    const newTask = {
+      id: crypto.randomUUID(),
+      title: taskTitle,
+      isCompleted: false,
+    };
+    const newTasks = [...tasks, newTask];
+    setTasks(newTasks);
+    setTaskAndSave(newTasks);
   }
 
   function deleteTaskById(taskId) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTaskAndSave(newTasks, setTasks);
+    setTasks(newTasks);
+    setTaskAndSave(newTasks);
   }
 
   function toggleTaskCompletedById(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
-        return {
+        const updatedTask = {
           ...task,
           isCompleted: !task.isCompleted,
         };
+        return updatedTask;
       }
       return task;
     });
-    setTaskAndSave(newTasks, setTasks);
+    setTasks(newTasks);
+    setTaskAndSave(newTasks);
   }
+  
 
   return (
     <>
