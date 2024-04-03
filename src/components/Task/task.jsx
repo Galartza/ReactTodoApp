@@ -21,15 +21,15 @@ export function Task({ task, onComplete, onDelete }) {
         <section className='task'>
             <div className='container-task'>
                 <div className='contentainer-check'>
-                    <label className="checkBox">
+                    <label className="container">
                         <input 
-                            id="ch1" 
-                            type="checkbox" 
-                            checked={isChecked} // Establece el estado del checkbox
-                            onChange={handleCheckboxChange} // Maneja el cambio de estado del checkbox
+                         id="ch1"
+                         type="checkbox"
+                         checked={isChecked} // Establece el estado del checkbox
+                         onChange={handleCheckboxChange} // Maneja el cambio de estado del checkbox 
                         />
-                        {<div/>}
-                        <div className="transition"></div>
+                         {<div />}
+                        <div className="checkmark"></div>
                     </label>
                 </div>
 

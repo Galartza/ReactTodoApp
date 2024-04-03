@@ -12,58 +12,95 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background: #212121;
+  background: #71879c;
   border-radius: 5px;
   gap: 12px;
   padding: 15px;
 }
 
-.clear {
-  clear: both;
-}
-
-.checkBox {
-  display: block;
+.container-task:hover {
+  background: #7a93aa;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  border: 1px solid rgba(255, 255, 255, 0);
-  border-radius: 10px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 2px #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
 }
 
-.checkBox div {
-  width: 30px;
-  height: 30px;
-  background-color: #0071e2;
-  top: -52px;
-  left: -52px;
+.checkmark {
+  --clr: #144683;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: .8em;
+  width: .8em;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 300ms;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: var(--clr);
+  border-radius: .5rem;
+  animation: pulse 500ms ease-in-out;
+}
+
+.checkmark:after {
+  content: "";
   position: absolute;
-  transform: rotateZ(45deg);
-  z-index: 100;
+  display: none;
 }
 
-.checkBox input[type=checkbox]:checked + div {
-  left: -10px;
-  top: -10px;
+.container input:checked ~ .checkmark:after {
+  display: block;
 }
 
-.checkBox input[type=checkbox] {
-  position: absolute;
-  left: 50px;
-  visibility: hidden;
+.container .checkmark:after {
+  left: 0.30em;
+  top: 0.10em;
+  width: 0.14em;
+  height: 0.4em;
+  border: solid #fff;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
 }
 
-.transition {
-  transition: 500ms ease;
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #0071e2;
+    rotate: 20deg;
+  }
+
+  50% {
+    rotate: -20deg;
+  }
+
+  75% {
+    box-shadow: 0 0 0 10px #0071e2;
+  }
+
+  100% {
+    box-shadow: 0 0 0 13px #0071e2;
+    rotate: 0;
+  }
 }
 
 .deleteButton {
   border: none;
   background: none;
-  color: #fff;
+  color: #144683;
   font-size: 20px;
   padding: 2px;
 }
@@ -71,9 +108,9 @@
 .text-task {
   font-size: 14px;
   line-height: 19px;
-  color: #fff;
+  color: #0b2545;
   margin-right: auto;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
