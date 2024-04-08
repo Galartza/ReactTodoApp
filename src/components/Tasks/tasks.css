@@ -4,27 +4,29 @@
     margin: 0 auto;
     margin-top: 90px;
     padding: 0 1rem;
-}
-.container-valores {
+  }
+  
+  .container-valores {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-}
-
-.container-valores div {
+  }
+  
+  .container-valores div {
     display: flex;
     gap: 5px;
     font-size: 14px;
     color: #fff;
     height: 20px;
-}
-.container-valores span {
+  }
+  
+  .container-valores span {
     color: #fff;
-    background-color: #111111;
+    background-color: #03071e;
     height: 100%;
-    border-radius: 40%;
+    border-radius: 5px;
     font-size: 10px;
     height: 100%;
     padding: 4px;
-}
+  }

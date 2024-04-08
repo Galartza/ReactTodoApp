@@ -1,46 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
-
-import './task.css'
+import "./task.css";
 
 export function Task({ task, onComplete, onDelete }) {
-    const [isChecked, setIsChecked] = useState(task.isCompleted);
+  const [isChecked, setIsChecked] = useState(task.isCompleted);
 
-    // Actualiza el estado del checkbox al renderizar el componente
-    useEffect(() => {
-        setIsChecked(task.isCompleted);
-    }, [task.isCompleted]);
+  useEffect(() => {
+    setIsChecked(task.isCompleted);
+  }, [task.isCompleted]);
 
-    // Función para manejar el cambio de estado del checkbox
-    const handleCheckboxChange = () => {
-        onComplete(task.id);
-        setIsChecked(!isChecked); // Actualiza el estado del checkbox
-    }
+  const handleCheckboxChange = () => {
+    onComplete(task.id);
+    setIsChecked(!isChecked);
+  };
 
-    return (
-        <section className='task'>
-            <div className='container-task'>
-                <div className='contentainer-check'>
-                    <label className="container">
-                        <input 
-                         id="ch1"
-                         type="checkbox"
-                         checked={isChecked} // Establece el estado del checkbox
-                         onChange={handleCheckboxChange} // Maneja el cambio de estado del checkbox 
-                        />
-                         {<div />}
-                        <div className="checkmark"></div>
-                    </label>
-                </div>
+  return (
+    <section className="task">
+      <div className="container-task">
+        <div className="contentainer-check">
+          <label className="container">
+            <input
+              id="ch1"
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <div className="checkmark" />
+          </label>
+        </div>
 
-                <p className='text-task'>
-                    {task.title}
-                </p>
+        <p className="text-task">{task.title}</p>
 
-                <button className='deleteButton' onClick={() => onDelete(task.id)}>
-                    <BsTrash />
-                </button>
-            </div>
-        </section>
-    )
+        <button
+          className="deleteButton taskDeleteButton"
+          onClick={() => onDelete(task.id)}
+        >
+          <BsTrash />
+        </button>
+      </div>
+    </section>
+  );
 }

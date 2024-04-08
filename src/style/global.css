@@ -6,14 +6,11 @@
 }
 
 body {
-  background-color: #22333b;
+  background-color: #03071eee ;
   color: #f2f2f2;
   min-height: 100vh;
 }
 
 button {
   cursor: pointer;
-}
-img {
-  height: 35vh;
 }

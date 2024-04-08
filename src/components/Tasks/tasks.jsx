@@ -1,10 +1,10 @@
-import React from 'react'
-import './tasks.css'
-import { Task } from "../Task/task"
+import React from "react";
+import "./tasks.css";
+import { Task } from "../Task/task";
 
 export function Tasks({ tasks, onComplete, onDelete }) {
   const tasksQuantity = tasks.length;
-  const completeTasks = tasks.filter(task => task.isCompleted).length;
+  const completeTasks = tasks.filter((task) => task.isCompleted).length;
 
   return (
     <section className="tasks">
