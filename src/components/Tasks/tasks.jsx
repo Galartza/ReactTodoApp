@@ -14,7 +14,7 @@ export function Tasks({ tasks, onComplete, onDelete }) {
           <span>{tasksQuantity}</span>
         </div>
         <div>
-          <p>Tarea completa</p>
+          <p>Tareas completas</p>
           <span>{completeTasks} de {tasksQuantity}</span>
         </div>
       </div>
